@@ -1,0 +1,530 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+<link href="https://cdn.datatables.net/v/dt/dt-2.2.2/datatables.min.css" rel="stylesheet" integrity="sha384-2vMryTPZxTZDZ3GnMBDVQV8OtmoutdrfJxnDTg0bVam9mZhi7Zr3J1+lkVFRr71f" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+    #calendar {
+        max-width: 900px;
+        margin: 0 auto;
+        background-color: white;
+        border-radius: 8px;
+    }
+
+    .fc-toolbar {
+        background-color: white;
+        color: #85276B;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .fc-button {
+        background-color: #85276B;
+        color: white;
+        border: none;
+    }
+
+        .fc-button:hover {
+            background-color: #0056b3;
+        }
+
+    .fc-event {
+        border-radius: 4px;
+        padding: 5px;
+    }
+
+        .fc-event:hover {
+            cursor: pointer;
+            opacity: 0.8;
+        }
+
+        /* Estilos para feriados nacionais (vermelho) */
+        .fc-event.national {
+            background-color: #ff6b6b;
+        }
+
+        /* Estilos para feriados municipais (azul) */
+        .fc-event.municipal {
+            background-color: #007bff;
+        }
+</style>
+<style>
+    /*Estilização do scroll Reveal*/
+    .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+</style>
+<style>
+    #holiday-legend-container {
+        margin-top: 20px;
+        padding: 20px;
+        background: linear-gradient(to right, #f9f9f9, #e6f2ff);
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        max-width: 600px;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+        #holiday-legend-container h3 {
+            margin-bottom: 15px;
+            color: #003366;
+            font-size: 1.5rem;
+            border-bottom: 2px solid #cce6ff;
+            padding-bottom: 8px;
+        }
+
+    #holiday-legend {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        #holiday-legend li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            background-color: #ffffff;
+            /* REMOVE a cor padrão da borda esquerda */
+            border-left: 6px solid transparent;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+            #holiday-legend li:hover {
+                transform: scale(1.02);
+                background-color: #f0f8ff;
+            }
+
+            /* Aplica a cor da borda corretamente */
+            #holiday-legend li.national {
+                border-left-color: #e53935; /* vermelho */
+            }
+
+            #holiday-legend li.municipal {
+                border-left-color: #1e88e5; /* azul */
+            }
+
+            #holiday-legend li span {
+                font-weight: bold;
+                color: #333;
+            }
+
+            #holiday-legend li .icon {
+                font-size: 1.3rem;
+            }
+</style>
+
+
+
+<!-- Banner -->
+<div class="container-fluid p-0">
+
+    <div class="position-relative">
+        <img src="~/Content/Banner/banner-intranet.png"
+             class="d-block img-fluid"
+             style="object-fit: cover; width: 100%;">
+
+        <div class="position-absolute bottom-0 start-0 text-white p-3 mb-3 mx-3" style="z-index: 10;">
+            <h1 id="avisosSection" class="d-none d-lg-block">Seja Bem-vindo!</h1>
+            <a href="@Url.Action("Novidades", "Home")" class="btn btn-primary btn-lg rounded-5 py-0">Saiba mais...</a>
+        </div>
+    </div>
+
+
+    <div class="text-center mt-5">
+        <span class=" py-2 px-5 fs-3 rounded-4" style="color:purple; background-color: #F8F9FA;"><strong>AVISOS</strong></span>
+        <div class="d-flex align-items-center justify-content-center my-3">
+            <hr class="mx-2" style="width: 40%; height: 3px; background-color: black; border: none;">
+            <span class="px-2 text-muted" style="font-size: 2rem;">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </span>
+            <hr class="mx-2" style="width: 40%; height: 3px; background-color: black; border: none;">
+        </div>
+    </div>
+    <p class="text-center mb-5">Todos os avisos ativos presentes em um só lugar</p>
+
+    <div id="aniversariantesSection" class="row mt-3 mb-5 justify-content-around reveal" style="width: 100%;">
+        <div class="col-md-3 mb-3 mx-2">
+            <div class="card alert alert-warning" style="height: 300px">
+                <div class="card-body">
+                    <h5 class="card-title"><strong>Novo Selo Sustentável da SoftHair</strong></h5>
+                    <p class="card-text">Estamos entusiasmados em compartilhar uma novidade incrível com todos vocês! A partir de agora, as embalagens dos nossos produtos levarão o selo do programa Mãos Pro Futuro, da abihpecoficial.</p>
+                    <p class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#infoModal">
+                        <strong>Ver mais</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3 mx-2">
+            <div class="card alert alert-warning" style="height: 300px">
+                <div class="card-body">
+                    <h5 class="card-title"><strong>Mural SoftHair Abril</strong></h5>
+                    <p class="card-text">Dê uma olhada no nosso mural de Abril!</p>
+                    <p class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#infoModal1"><strong>Ver mais</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3 mx-2">
+            <div class="card alert alert-warning" style="height: 300px">
+                <div class="card-body">
+                    <h5 class="card-title"><strong>Comunicado sobre Uniformes</strong></h5>
+                    <p class="card-text">Saiba tudo sobre os novos uniformes da Softhair!</p>
+                    <p class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#infoModal2"><strong>Ver mais</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container reveal">
+
+    </div>
+
+    <div class="row justify-content-center py-5 reveal " style="background-color: #F8F9FA; margin-left: 0; margin-right: 0;">
+        <div class="text-center mt-5">
+            <span class="reveal py-2 px-5 fs-3 rounded-4" style="color:purple; background-color: #F8F9FA;"><strong>ANIVERSARIANTES DO MÊS</strong></span>
+            <div class="d-flex align-items-center justify-content-center my-3 reveal">
+                <hr class="mx-2" style="width: 40%; height: 3px; background-color: black; border: none;">
+                <span class="px-2 text-muted" style="font-size: 2rem;">
+                    <i class="fa-solid fa-cake"></i>
+                </span>
+                <hr class="mx-2" style="width: 40%; height: 3px; background-color: black; border: none;">
+            </div>
+        </div>
+        <p class="text-center mb-5 reveal">Parte destinada a todos os aniversariante do mês</p>
+
+        <div class="col-sm-12 col-md-8 reveal">
+            <table id="myTable" class="display table-responsive">
+                <thead>
+                    <tr style="background-color: violet;">
+                        <th>NOME</th>
+                        <th>ANIVERSÁRIO</th>
+                        <th>DEPARTAMENTO</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white">
+                    <tr>
+                        <td>Milene Fisio</td>
+                        <td>06/04</td>
+                        <td>Fisioterapia</td>
+                    </tr>
+                    <tr>
+                        <td>Luiz Caio</td>
+                        <td>09/04</td>
+                        <td>Administrativo</td>
+                    </tr>
+                    <tr>
+                        <td>Felipe Vieira</td>
+                        <td>13/04</td>
+                        <td>Administrativo</td>
+                    </tr>
+                    <tr>
+                        <td>Jade Dayanne</td>
+                        <td>22/04</td>
+                        <td>Administrativo</td>
+                    </tr>
+                    <tr>
+                        <td>Luiara Fernanda</td>
+                        <td>12/04</td>
+                        <td>Administrativo</td>
+                    </tr>
+                    <tr>
+                        <td>Maria Eduarda</td>
+                        <td>22/04</td>
+                        <td>Administrativo</td>
+                    </tr>
+                    <tr>
+                        <td>Naderval Miranda</td>
+                        <td>23/04</td>
+                        <td>Administrativo</td>
+                    </tr>
+                    <tr>
+                        <td>Mariana Ferreira</td>
+                        <td>28/04</td>
+                        <td>Administrativo</td>
+                    </tr>
+                    <tr>
+                        <td>Rodrigo de Sousa</td>
+                        <td>10/04</td>
+                        <td>Diretoria</td>
+                    </tr>
+                    <tr>
+                        <td>Diane de Paula</td>
+                        <td>03/04</td>
+                        <td>Produção</td>
+                    </tr>
+                    <tr>
+                        <td>Eliezer Teixeira</td>
+                        <td>03/04</td>
+                        <td>Produção</td>
+                    </tr>
+                    <tr>
+                        <td>Claudia Alessandra</td>
+                        <td>06/04</td>
+                        <td>Produção</td>
+                    </tr>
+                    <tr>
+                        <td>Rafael Ferreira</td>
+                        <td>14/04</td>
+                        <td>Produção</td>
+                    </tr>
+                    <tr>
+                        <td>Sama Marília</td>
+                        <td>15/04</td>
+                        <td>Produção</td>
+                    </tr>
+                    <tr>
+                        <td>Aline Assis</td>
+                        <td>19/04</td>
+                        <td>Produção</td>
+                    </tr>
+                    <tr>
+                        <td>Eduardo Alves</td>
+                        <td>22/04</td>
+                        <td>Produção</td>
+                    </tr>
+                    <tr>
+                        <td>Samuel</td>
+                        <td>25/04</td>
+                        <td>Elza/CD</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        @*<div class="col-sm-12 col-md-6 reveal">
+            <img src="~/Content/Imagens/birthday.png" class="img-fluid"/>
+        </div>*@
+        </div>
+
+        <div class="container reveal" id="calendarioSection" style="height: 50px">
+        </div>
+        <div class="text-center mt-5">
+            <span class="reveal py-2 px-5 fs-3 rounded-4" style="color:purple; background-color: #F8F9FA;"><strong>CALENDÁRIO</strong></span>
+            <div class="d-flex align-items-center justify-content-center my-3 reveal">
+                <hr class="mx-2" style="width: 40%; height: 3px; background-color: black; border: none;">
+                <span class="px-2 text-muted" style="font-size: 2rem;">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </span>
+                <hr class="mx-2" style="width: 40%; height: 3px; background-color: black; border: none;">
+            </div>
+        </div>
+        <p class="text-center mb-5 reveal">Aqui se encontra o Calendário oficial da empresa</p>
+
+        <div class="row justify-content-center my-5 reveal w-100">
+            <div class="col-12 col-sm-12 col-md-5" id='calendar' style="width: 45%"></div>
+            <div class="col-12 col-sm-12 col-md-5 text-center">
+                <h4 class="my-3">🗓️ DATAS COMEMORATIVAS</h4>
+                <ul id="holiday-legend" class="list-unstyled"></ul>
+                <ul id="holiday-legend" class="list-unstyled"></ul>
+            </div>
+        </div>
+    </div>
+
+<div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="infoModalLabel">Novo Selo Sustentável da SoftHair</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img src="~/Content/Avisos/Mãos para o futuro (002).jpg" class="img-fluid" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="infoModal1" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="infoModalLabel">Mural Softhair Abril</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <img src="~/Content/Avisos/Imagem1.png" class="img-fluid" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="infoModal2" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="infoModalLabel">Comunicado sobre Uniformes</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img src="~/Content/Avisos/comunicado1 (002).jpg" class="img-fluid"/>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- FullCalendar CSS e JS via CDN -->
+<script src="~/Scripts/jquery-3.7.1.min.js"></script>
+<script src="~/Scripts/bootstrap.bundle.js"></script>
+
+<!-- Scripts -->
+
+<script src="https://cdn.datatables.net/v/dt/dt-2.2.2/datatables.min.js" integrity="sha384-2Ul6oqy3mEjM7dBJzKOck1Qb/mzlO+k/0BQv3D3C7u+Ri9+7OBINGa24AeOv5rgu" crossorigin="anonymous"></script>
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var calendarEl = document.getElementById('calendar');
+        var legendEl = document.getElementById('holiday-legend');
+
+        var holidays = [
+            { title: 'Confraternização Universal', date: '2025-01-01', type: 'national' },
+            { title: 'Carnaval', date: '2025-03-03', type: 'national' },
+            { title: 'Carnaval', date: '2025-03-04', type: 'national' },
+            { title: 'Carnaval', date: '2025-03-05', type: 'national' },
+            { title: 'Tiradentes', date: '2025-04-21', type: 'national' },
+            { title: 'Dia do Trabalho', date: '2025-05-01', type: 'national' },
+            { title: 'Independência do Brasil', date: '2025-09-07', type: 'national' },
+            { title: 'Nossa Senhora Aparecida', date: '2025-10-12', type: 'national' },
+            { title: 'Finados', date: '2025-11-02', type: 'national' },
+            { title: 'Proclamação da República', date: '2025-11-15', type: 'national' },
+            { title: 'Dia da Consciência Negra', date: '2025-11-20', type: 'national' },
+            { title: 'Natal', date: '2025-12-25', type: 'national' },
+            { title: 'Sexta-feira da Paixão', date: '2025-04-18', type: 'municipal' },
+            { title: 'Corpus Christi', date: '2025-06-19', type: 'municipal' },
+            { title: 'Nossa Senhora do Carmo', date: '2025-07-16', type: 'municipal' },
+            { title: 'Assunção de Nossa Senhora', date: '2025-08-15', type: 'municipal' },
+            { title: 'Imaculada Conceição', date: '2025-12-08', type: 'municipal' }
+        ];
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            locale: 'pt-br',
+            initialView: 'dayGridMonth',
+            buttonText: {
+                today: 'Hoje'  // Altera o texto do botão "Today" para "Hoje"
+            },
+            events: holidays.map(h => ({ title: h.title, start: h.date, className: h.type })),
+            datesSet: function (info) {
+                updateLegend(info.view.currentStart);
+            }
+        });
+
+        calendar.render();
+
+        function updateLegend(currentDate) {
+            var currentMonth = currentDate.getMonth() + 1;
+            var currentYear = currentDate.getFullYear();
+            var filteredHolidays = holidays.filter(h => {
+                var parts = h.date.split('-');
+                var holidayDate = new Date(parts[0], parts[1] - 1, parts[2]); // evita bug UTC
+                return holidayDate.getMonth() + 1 === currentMonth && holidayDate.getFullYear() === currentYear;
+            });
+
+            legendEl.innerHTML = filteredHolidays.length ?
+                filteredHolidays.map(h => {
+                    const icon = h.type === 'national' ? '🇧🇷' : '🏙️';
+                    const [year, month, day] = h.date.split('-');
+                    return `<li class="${h.type}">
+                        <span class="icon">${icon}</span>
+                        <span>${h.title} - ${day}/${month}/${year}</span>
+                    </li>`;
+                }).join('') :
+                '<li><span class="icon">📭</span><span>Sem feriados neste mês</span></li>';
+        }
+    });
+
+</script>
+
+<script>
+    new DataTable('#myTable', {
+        paging: false,
+        scrollX: true,
+        order: [[1, "asc"]],
+        searching: false,
+        language: {
+            search: "PESQUISAR", // Label do input de pesquisa
+            decimal: ",",
+            "sInfo": "",
+        },
+
+    });
+    function revealOnScroll() {
+        $(".reveal").each(function () {
+            const windowHeight = $(window).height();
+            const elementTop = $(this).offset().top;
+            const scrollTop = $(window).scrollTop();
+            const revealPoint = 150;
+
+            // Só adiciona a classe "active" se o elemento não tiver sido revelado ainda
+            if (elementTop < scrollTop + windowHeight - revealPoint) {
+                $(this).addClass("active");
+            }
+        });
+    }
+    $(document).ready(function () {
+        function typeWriter(element, text, speed) {
+            let i = 0;
+            function typing() {
+                if (i < text.length) {
+                    $(element).append(text.charAt(i));
+                    i++;
+                    setTimeout(typing, speed);
+                }
+            }
+            typing();
+        }
+        // Chamar a função ao rolar a página
+        $(window).on('scroll', function () {
+            revealOnScroll();
+        });
+
+        // Chamar a função ao carregar para os elementos visíveis já aparecerem
+        revealOnScroll();
+
+        const text = $("#avisosSection").text();
+        $("#avisosSection").text(""); // Limpar o texto para iniciar o efeito
+        typeWriter("#avisosSection", text, 125);
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const hoje = new Date();
+        const diaAtual = hoje.getDate().toString().padStart(2, '0');
+        const mesAtual = (hoje.getMonth() + 1).toString().padStart(2, '0');
+        const dataAtual = `${diaAtual}/${mesAtual}`;
+
+        const linhas = document.querySelectorAll("#myTable tbody tr");
+
+        linhas.forEach(tr => {
+            const tdData = tr.children[1]; // segunda coluna = data de aniversário
+            if (tdData && tdData.textContent.trim() === dataAtual) {
+                tr.style.backgroundColor = "#ffff99"; // Amarelo claro
+                tr.style.fontWeight = "bold";
+            }
+        });
+    });
+</script>

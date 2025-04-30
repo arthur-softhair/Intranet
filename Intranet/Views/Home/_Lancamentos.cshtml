@@ -1,0 +1,218 @@
+﻿
+@{
+    ViewBag.Title = "Lancamentos";
+}
+
+<style>
+    .image-hover {
+        position: relative;
+        overflow: hidden;
+    }
+
+        .image-hover:hover .overlay {
+            opacity: 1;
+        }
+
+        .image-hover:hover img {
+            transform: scale(1.1); /* Zoom na imagem */
+        }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(128, 0, 128, 0.3); /* Roxo transparente */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .image-hover img {
+        transition: transform 0.3s ease;
+    }
+
+    .btn-ver-mais {
+        color: white;
+        background-color: transparent;
+        border: 2px solid white;
+    }
+
+        .btn-ver-mais:hover {
+            background-color: white;
+            color: purple;
+        }
+
+    #divider::before, .divider::after {
+        flex: 1;
+        content: '';
+        padding: 3px;
+        background-color: red;
+        margin: 5px;
+    }
+</style>
+<div class="" style="width: 100%; height: 50px; background-color: white;"></div>
+<div class="container">
+    <div class="text-center mt-5">
+        <span class="reveal py-2 px-5 fs-3 rounded-4" style="color:purple; background-color: #F8F9FA;"><strong>LANÇAMENTOS</strong></span>
+        <div class="d-flex align-items-center justify-content-center my-3 reveal">
+            <hr class="mx-2" style="width: 40%; height: 3px; background-color: black; border: none;">
+            <span class="px-2 text-muted" style="font-size: 2rem;">
+                <i class="fa-solid fa-gift"></i>
+            </span>
+            <hr class="mx-2" style="width: 40%; height: 3px; background-color: black; border: none;">
+        </div>
+    </div>
+    <p class="text-center mb-5 reveal">Confira os novos Produtos da empresa</p>
+    <div class="row my-5 justify-content-around align-items-center gap-3 reveal">
+
+        <div class="col-md-3 text-center shadow image-hover">
+            <img src="~/Content/Produtos/000000017638.png" class="img-fluid h-75 my-3" />
+            <div class="overlay">
+                <button class="btn btn-ver-mais" data-bs-toggle="modal" data-bs-target="#infoModalProduto">Ver Mais</button>
+            </div>
+        </div>
+        <div class="col-md-3 text-center shadow image-hover">
+            <img src="~/Content/Produtos/000000017640.png" class="img-fluid h-75 my-3" />
+            <div class="overlay">
+                <button class="btn btn-ver-mais" data-bs-toggle="modal" data-bs-target="#infoModalProduto2">Ver Mais</button>
+            </div>
+        </div>
+        <div class="col-md-3 text-center shadow image-hover">
+            <img src="~/Content/Produtos/000000017639.png" class="img-fluid h-75 my-3" />
+            <div class="overlay">
+                <button class="btn btn-ver-mais" data-bs-toggle="modal" data-bs-target="#infoModalProduto3">Ver Mais</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modais -->
+<div class="modal fade" id="infoModalProduto" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content border-0 rounded-4 shadow-lg">
+            <!-- Botão de fechar no canto superior -->
+            <div class="position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" style="cursor:pointer;">
+                <i class="fas fa-xmark me-1"></i>
+            </div>
+            <div class="container py-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 text-center">
+                        <div class="modal-body">
+                            <!-- Título estilizado -->
+                            <h2 class="text-uppercase fw-bold">Lisa Hidratante <span style="color:purple;">Ameixa</span></h2>
+                            <p class="item-intro text-muted">Hidratação profunda com aroma envolvente</p>
+
+                            <!-- Imagem do produto -->
+                            <img class="img-fluid d-block mx-auto my-4" src="~/Content/Produtos/000000017638.png" alt="Lisa Hidratante Ameixa" style="height: 233px; width: 233px;" />
+
+                            <!-- Texto descritivo -->
+                            <p>
+                                Descubra o poder do novo hidratante de ameixa, que combina uma hidratação profunda de até 24 horas com uma textura suave e luxuosa.
+                                Este hidratante mantém sua pele com um aroma envolvente de ameixa, proporcionando uma sensação duradoura de maciez e proteção o dia todo.
+                            </p>
+
+                            <!-- Assinatura -->
+                            <p class="mt-4" style="color: purple;">
+                                Atenciosamente, Equipe de MKT e Desenvolvimento de Produtos SOFT HAIR e BIO SOFT.
+                            </p>
+
+                            <!-- Botão de fechar -->
+                            <button class="btn btn-primary btn-xl text-uppercase mt-3" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Fechar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="infoModalProduto2" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content border-0 rounded-4 shadow-lg">
+            <!-- Botão de fechar personalizado no canto superior -->
+            <div class="position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" style="cursor:pointer;">
+                <i class="fas fa-xmark me-1"></i>
+            </div>
+            <div class="container py-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 text-center">
+                        <div class="modal-body">
+                            <!-- Título com cor temática -->
+                            <h2 class="text-uppercase fw-bold">Lisa Hidratante <span style="color:green;">Melancia</span></h2>
+                            <p class="item-intro text-muted">Revitalização com frescor e maciez</p>
+
+                            <!-- Imagem do produto -->
+                            <img class="img-fluid d-block mx-auto my-4" src="~/Content/Produtos/000000017640.png" alt="Lisa Hidratante Melancia" style="height: 233px; width: 233px;" />
+
+                            <!-- Texto de descrição -->
+                            <p>
+                                Experimente o poder do novo hidratante melancia, que oferece intensa hidratação por até 24 horas com uma explosão de cheiro.
+                                Com textura extra cremosa, ele deixa sua pele macia, protegida e envolvida em um aroma irresistível de melancia fresca. Ideal para manter sua pele revitalizada e com sensação de frescor o dia todo.
+                            </p>
+
+                            <!-- Assinatura -->
+                            <p class="mt-4" style="color: green;">
+                                Atenciosamente, Equipe de MKT e Desenvolvimento de Produtos SOFT HAIR e BIO SOFT.
+                            </p>
+
+                            <!-- Botão estilizado -->
+                            <button class="btn btn-success btn-xl text-uppercase mt-3" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Fechar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="infoModalProduto3" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content border-0 rounded-4 shadow-lg">
+            <!-- Botão de fechar customizado -->
+            <div class="position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" style="cursor:pointer;">
+                <i class="fas fa-xmark me-1"></i>
+            </div>
+            <div class="container py-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 text-center">
+                        <div class="modal-body">
+                            <!-- Título -->
+                            <h2 class="text-uppercase fw-bold">Lisa Hidratante <span style="color:hotpink;">Pitaya Rosa</span></h2>
+                            <p class="item-intro text-muted">Hidratação intensa com aroma marcante</p>
+
+                            <!-- Imagem -->
+                            <img class="img-fluid d-block mx-auto my-4" src="~/Content/Produtos/000000017639.png" alt="Lisa Hidratante Pitaya Rosa" style="height: 233px; width: 233px;" />
+
+                            <!-- Descrição -->
+                            <p>
+                                Revitalize sua pele com o hidratante Pitaya Rosa, que oferece 24 horas de hidratação intensa e uma textura extra cremosa que se funde perfeitamente à pele.
+                                Com um aroma único e marcante, sua pele ficará macia, protegida e com um toque sedoso durante todo o dia.
+                            </p>
+
+                            <!-- Assinatura -->
+                            <p class="mt-4" style="color: hotpink;">
+                                Atenciosamente, Equipe de MKT e Desenvolvimento de Produtos SOFT HAIR e BIO SOFT.
+                            </p>
+
+                            <!-- Botão -->
+                            <button class="btn btn-pink btn-xl text-uppercase mt-3 text-white" data-bs-dismiss="modal" type="button" style="background-color: hotpink; border: none;">
+                                <i class="fas fa-xmark me-1"></i>
+                                Fechar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,252 @@
+﻿@{
+    ViewBag.Title = "Agendamento de Reuniões";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+
+    #calendar {
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 16px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .fc .fc-toolbar-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .fc-button {
+        background-color: white !important;
+        border: none !important;
+        border-radius: 8px !important;
+        padding: 6px 12px !important;
+        font-size: 0.9rem !important;
+        color: purple !important;
+    }
+
+        .fc-button:hover {
+            background-color: #D3D3D3 !important;
+        }
+
+    .fc-daygrid-day-number {
+        font-weight: 500;
+        color: #444;
+    }
+
+    .fc-event {
+        background-color: #10B981 !important;
+        border: none !important;
+        border-radius: 6px !important;
+        padding: 2px 4px !important;
+        font-size: 0.85rem;
+    }
+
+    .modal-content {
+        border-radius: 12px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .modal-header {
+        border-bottom: none;
+    }
+
+    .modal-title {
+        font-weight: 600;
+    }
+
+    #saveMeeting {
+        width: 100%;
+        border-radius: 8px;
+        background-color: #4F46E5;
+        border: none;
+    }
+
+        #saveMeeting:hover {
+            background-color: #3730A3;
+        }
+
+    select#salaSelect {
+        border-radius: 8px;
+        border: 1px solid #ccc;
+    }
+
+    input.form-control {
+        border-radius: 8px;
+        border: 1px solid #ccc;
+    }
+</style>
+
+<div class="container">
+    <div class="row my-3 justify-content-center">
+        <div class="col-md-4 my-3 text-center">
+            <span class="reveal py-2 px-5 fs-3 rounded-4" style="color:purple; background-color: #F8F9FA;"><strong>AGENDAMENTOS</strong></span>
+            <div class="d-flex align-items-center justify-content-center my-3 reveal">
+                <hr class="mx-2" style="width: 40%; height: 3px; background-color: black; border: none;">
+                <span class="px-2 text-muted" style="font-size: 2rem;">
+                    <i class="fa-solid fa-handshake"></i>
+                </span>
+                <hr class="mx-2" style="width: 40%; height: 3px; background-color: black; border: none;">
+            </div>
+            <select id="salaSelect" class="form-control-lg mt-3 w-100">
+                <option value="1">Sala 1</option>
+                <option value="2">Sala 2</option>
+                <option value="3">Sala 3</option>
+                <!-- Aqui futuramente pode vir de uma ViewBag -->
+            </select>
+        </div>
+    </div>
+
+    <div class="row mb-5">
+        <div id="calendar" class="p-3 bg-white rounded shadow-sm col-6"></div>
+        <div class="col-md-6">
+            <div class="p-3 bg-white rounded shadow-sm text-center">
+                <h5 class="mb-3" style="color: purple;">Reuniões Visíveis</h5>
+                <ul id="legendaReunioes" class="list-unstyled mb-0"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de agendamento -->
+<div id="agendamentoReuniaoModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Agendar Reunião</h4>
+                <div type="button" class="close ms-auto" data-bs-dismiss="modal">
+                    <i class="fas fa-xmark me-1"></i>
+                </div>
+            </div>
+            <div class="modal-body">
+                <input id="title" placeholder="Título" class="form-control mb-2" />
+                <input id="room" placeholder="Sala" class="form-control mb-2" readonly />
+                <input type="color" id="corReuniao" class=" mb-2" value="#10B981" />
+                <input id="startDate" placeholder="Data Início" class="form-control mb-2" />
+                <input id="endDate" placeholder="Data Fim" class="form-control mb-2" />
+                <button id="saveMeeting" class="btn btn-success">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Referências CDN -->
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/locales-all.global.min.js"></script>
+
+<script>
+
+    var calendar;
+
+    function carregarLegenda() {
+        var eventos = calendar.getEvents();
+        var intervaloVisivel = calendar.view;
+
+        const eventosVisiveis = eventos.filter(e => {
+            return e.start >= intervaloVisivel.activeStart && e.start <= intervaloVisivel.activeEnd;
+        });
+
+        var htmlLegenda = eventosVisiveis.map(e => {
+            const inicio = e.start.toLocaleString('pt-BR', {
+                day: '2-digit', month: '2-digit', year: 'numeric',
+                hour: '2-digit', minute: '2-digit'
+            });
+            return `<li><strong>${e.title}</strong><br><small>${inicio} - ${e.extendedProps?.tipo || 'Sem tipo'}</small></li>`;
+        }).join('');
+
+        $('#legendaReunioes').html(htmlLegenda || '<li><em>Nenhuma reunião visível.</em></li>');
+    }
+
+    function carregarCalendario() {
+        var calendarEl = document.getElementById('calendar');
+        var salaNome = $('#salaSelect option:selected').text();
+
+        if (calendar) calendar.destroy();
+
+        calendar = new FullCalendar.Calendar(calendarEl, {
+            locale: 'pt-br',
+            initialView: 'dayGridMonth',
+            selectable: true,
+            editable: false,
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+            },
+            buttonText: {
+                today: 'Hoje',
+                month: 'Mês',
+                week: 'Semana',
+                day: 'Dia',
+                list: 'Lista'
+            },
+            events: `/AgendamentoReuniao/GetEventosPorSala?sala=${encodeURIComponent(salaNome)}`,
+            select: function (info) {
+                $('#startDate').val('');
+                $('#endDate').val('');
+                $('#title').val('');
+
+                $('#agendamentoReuniaoModal').modal('show');
+                flatpickr('#startDate', { enableTime: true, defaultDate: info.startStr });
+                flatpickr('#endDate', { enableTime: true, defaultDate: info.endStr });
+
+                $('#room').val(salaNome);
+            },
+            datesSet: function () {
+                carregarLegenda();
+            },
+            eventAdd: function () {
+                carregarLegenda();
+            },
+            eventRemove: function () {
+                carregarLegenda();
+            },
+            eventChange: function () {
+                carregarLegenda();
+            }
+        });
+
+        calendar.render();
+        carregarLegenda(); // Inicializa legenda após renderizar
+    }
+
+    $(document).ready(function () {
+        carregarCalendario($('#salaSelect').val());
+
+        $('#salaSelect').change(function () {
+            carregarCalendario();
+        });
+
+        $('#saveMeeting').click(function () {
+            var agendamentoReuniao = {
+                Title: $('#title').val(),
+                Room: $('#room').val(),
+                StartDate: $('#startDate').val(),
+                EndDate: $('#endDate').val(),
+                Cor: $('#corReuniao').val()
+            };
+            $.post('/AgendamentoReuniao/Create', agendamentoReuniao, function (response) {
+                alert(response.message);
+                if (response.success) {
+                    $('#agendamentoReuniaoModal').modal('hide');
+                    calendar.refetchEvents();
+                }
+            });
+        });
+
+        
+    });
+</script>
