@@ -53,7 +53,6 @@
 
         .fc-event.event {
             background-color: #eead2d;
-            
         }
 
     /*Estilização do scroll Reveal*/
@@ -167,43 +166,45 @@
 
     <div id="aniversariantesSection" class="row mt-3 mb-5 justify-content-around reveal" style="width: 100%;">
         <div class="col-md-3 mb-3 mx-2">
-            <div class="card alert alert-warning px-0 pt-0" style="height: 100%; border: none;">
+            <div class="card alert alert-warning px-0 pt-0"
+                 style="height: 100%; cursor: pointer;"
+                 data-bs-toggle="modal" data-bs-target="#infoModal">
                 <img src="~/Content/Avisos/Mãos para o futuro (002).jpg" class="card-img-top rounded-top-3" alt="Selo Sustentável da SoftHair"
                      style="width: 100%; height: 150px; object-fit: cover; object-position: top;">
                 <div class="card-body">
                     <h5 class="card-title"><strong>Novo Selo Sustentável da SoftHair</strong></h5>
-                    <p class="card-text">
-                        Estamos entusiasmados em compartilhar uma novidade incrível com todos vocês!
-                    </p>
-                    <p class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#infoModal">
-                        <strong>Ver mais</strong>
-                    </p>
+                    <p class="card-text">Estamos entusiasmados em compartilhar uma novidade incrível com todos vocês!</p>
                 </div>
             </div>
         </div>
+
         <div class="col-md-3 mb-3 mx-2">
-            <div class="card alert alert-warning px-0 pt-0" style="height: 100%; border: none;">
+            <div class="card alert alert-warning px-0 pt-0"
+                 style="height: 100%; cursor: pointer;"
+                 data-bs-toggle="modal" data-bs-target="#infoModal1">
                 <img src="~/Content/Banner/Banner dia do trabalhador_CV - compacto.jpg" class="card-img-top rounded-top-3" alt="Dia dos Trabalhadores"
                      style="width: 100%; height: 150px; object-fit: cover; object-position: top;">
                 <div class="card-body">
                     <h5 class="card-title"><strong>Dia dos Trabalhadores!</strong></h5>
                     <p class="card-text">Dê uma olhada em quem faz tudo acontecer!</p>
-                    <p class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#infoModal1"><strong>Ver mais</strong></p>
                 </div>
             </div>
         </div>
+
         <div class="col-md-3 mb-3 mx-2">
-            <div class="card alert alert-warning px-0 pt-0" style="height: 100%; border: none;">
+            <div class="card alert alert-warning px-0 pt-0"
+                 style="height: 100%; cursor: pointer;"
+                 data-bs-toggle="modal" data-bs-target="#infoModal2">
                 <img src="~/Content/Avisos/comunicado1 (002).jpg" class="card-img-top rounded-top-3" alt="Comunicado sobre Uniformes"
                      style="width: 100%; height: 150px; object-fit: cover; object-position: top;">
                 <div class="card-body">
                     <h5 class="card-title"><strong>Comunicado sobre Uniformes</strong></h5>
                     <p class="card-text">Saiba tudo sobre os novos uniformes da Softhair!</p>
-                    <p class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#infoModal2"><strong>Ver mais</strong></p>
                 </div>
             </div>
         </div>
     </div>
+
 
 
 
@@ -345,15 +346,16 @@
     </div>
 </div>
 
+<!-- Modal 1 -->
 <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="infoModalLabel">Novo Selo Sustentável da SoftHair</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <img src="~/Content/Avisos/Mãos para o futuro (002).jpg" class="img-fluid" />
+            <div class="modal-body text-center">
+                <img src="~/Content/Avisos/Mãos para o futuro (002).jpg" class="" style="max-height: 90vh;" />
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
@@ -361,32 +363,17 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="infoModal1" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="infoModalLabel">Banner do Dia dos Trabalhadores</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
 
-                <img src="~/Content/Banner/Banner dia do trabalhador_CV - compacto.jpg" class="img-fluid" />
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="infoModal2" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+<!-- Modal 2 -->
+<div class="modal fade" id="infoModal1" tabindex="-1" aria-labelledby="infoModalLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="infoModalLabel">Comunicado sobre Uniformes</h5>
+                <h5 class="modal-title" id="infoModalLabel1">Banner do Dia dos Trabalhadores</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <img src="~/Content/Avisos/comunicado1 (002).jpg" class="img-fluid"/>
+            <div class="modal-body text-center">
+                <img src="~/Content/Banner/Banner dia do trabalhador_CV - compacto.jpg" class="img-fluid" style="max-height: 90vh;" />
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
@@ -394,6 +381,25 @@
         </div>
     </div>
 </div>
+
+<!-- Modal 3 -->
+<div class="modal fade" id="infoModal2" tabindex="-1" aria-labelledby="infoModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="infoModalLabel2">Comunicado sobre Uniformes</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img src="~/Content/Avisos/comunicado1 (002).jpg" class="" style="max-height: 90vh;" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 
