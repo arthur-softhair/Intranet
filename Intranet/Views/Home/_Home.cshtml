@@ -169,11 +169,11 @@
             <div class="card alert alert-warning px-0 pt-0"
                  style="height: 100%; cursor: pointer;"
                  data-bs-toggle="modal" data-bs-target="#infoModal">
-                <img src="~/Content/Avisos/Mãos para o futuro (002).jpg" class="card-img-top rounded-top-3" alt="Selo Sustentável da SoftHair"
+                <img src="~/Content/Avisos/Comunicado 002-2025- Entregas Pessoais-imagens-0.jpg"   class="card-img-top rounded-top-3" alt="Entregas pessoais"
                      style="width: 100%; height: 150px; object-fit: cover; object-position: top;">
                 <div class="card-body">
-                    <h5 class="card-title"><strong>Novo Selo Sustentável da SoftHair</strong></h5>
-                    <p class="card-text">Estamos entusiasmados em compartilhar uma novidade incrível com todos vocês!</p>
+                    <h5 class="card-title"><strong>Entregas Pessoais</strong></h5>
+                    <p class="card-text">Sobre a responsabilização e novas normas para o recebimento de Entregas pessoais na empresa.</p>
                 </div>
             </div>
         </div>
@@ -195,11 +195,11 @@
             <div class="card alert alert-warning px-0 pt-0"
                  style="height: 100%; cursor: pointer;"
                  data-bs-toggle="modal" data-bs-target="#infoModal2">
-                <img src="~/Content/Avisos/comunicado1 (002).jpg" class="card-img-top rounded-top-3" alt="Comunicado sobre Uniformes"
+                <img src="~/Content/Avisos/Comunicado 001-2025  Empréstimo Consignado-imagens-0.jpg" class="card-img-top rounded-top-3" alt="Comunicado sobre Uniformes"
                      style="width: 100%; height: 150px; object-fit: cover; object-position: top;">
                 <div class="card-body">
-                    <h5 class="card-title"><strong>Comunicado sobre Uniformes</strong></h5>
-                    <p class="card-text">Saiba tudo sobre os novos uniformes da Softhair!</p>
+                    <h5 class="card-title"><strong>Empréstimos Consignados</strong></h5>
+                    <p class="card-text">Tudo o que você precisa saber sobre o empréstimo consignado.</p>
                 </div>
             </div>
         </div>
@@ -347,14 +347,15 @@
 
 <!-- Modal 1 -->
 <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="infoModalLabel">Novo Selo Sustentável da SoftHair</h5>
+                <h5 class="modal-title" id="infoModalLabel">Novas regras sobre Entregas Pessoais</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body text-center">
-                <img src="~/Content/Avisos/Mãos para o futuro (002).jpg" class="" style="max-height: 90vh;" />
+                <img src="~/Content/Avisos/Comunicado 002-2025- Entregas Pessoais-imagens-0.jpg" class="" style="max-height: 90vh;" />
+                <img src="~/Content/Avisos/Comunicado 002-2025- Entregas Pessoais-imagens-1.jpg" class="" style="max-height: 90vh;" />
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
@@ -383,17 +384,38 @@
 
 <!-- Modal 3 -->
 <div class="modal fade" id="infoModal2" tabindex="-1" aria-labelledby="infoModalLabel2" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="infoModalLabel2">Comunicado sobre Uniformes</h5>
+                <h5 class="modal-title" id="infoModalLabel2">Sobre Empréstimos Consignados</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body text-center">
-                <img src="~/Content/Avisos/comunicado1 (002).jpg" class="" style="max-height: 90vh;" />
+                <img src="~/Content/Avisos/Comunicado 001-2025  Empréstimo Consignado-imagens-0.jpg" class="" style="max-height: 90vh;" />
+                <img src="~/Content/Avisos/Comunicado 001-2025  Empréstimo Consignado-imagens-1.jpg" class="" style="max-height: 90vh;" />
+                <img src="~/Content/Avisos/Comunicado 001-2025  Empréstimo Consignado-imagens-2.jpg" class="" style="max-height: 90vh;" />
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="meuModal" tabindex="-1" aria-labelledby="meuModalLabel" aria-hidden="true">
+    <div class="modal-dialog alert alert-warning">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="meuModalLabel"><strong>AVISO IMPORTANTE!</strong></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body">
+                Visando um maior período de descanso para os colaboradores, informamos que conforme acordado, será feita a troca do feriado.
+                Sendo assim, os colaboradores irão trabalhar no dia 19/06 e folgar no dia 20/06.
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
             </div>
         </div>
     </div>
@@ -533,6 +555,12 @@
         });
     }
     $(document).ready(function () {
+
+
+            var meuModal = new bootstrap.Modal(document.getElementById('meuModal'));
+            meuModal.show();
+
+
         function typeWriter(element, text, speed) {
             let i = 0;
             function typing() {

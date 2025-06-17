@@ -120,7 +120,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Avisos\Comunicado 001-2025  Empréstimo Consignado-imagens-0.jpg" />
+    <Content Include="Content\Avisos\Comunicado 001-2025  Empréstimo Consignado-imagens-1.jpg" />
+    <Content Include="Content\Avisos\Comunicado 001-2025  Empréstimo Consignado-imagens-2.jpg" />
+    <Content Include="Content\Avisos\Comunicado 002-2025- Entregas Pessoais-imagens-0.jpg" />
+    <Content Include="Content\Avisos\Comunicado 002-2025- Entregas Pessoais-imagens-1.jpg" />
     <Content Include="Content\Avisos\comunicado1 %28002%29.jpg" />
+    <Content Include="Content\Avisos\EmprestimoConsignado1.png" />
+    <Content Include="Content\Avisos\EmprestimoConsignado2.png" />
+    <Content Include="Content\Avisos\EntregasPessoais1.png" />
+    <Content Include="Content\Avisos\EntregasPessoais2.png" />
     <Content Include="Content\Avisos\Imagem1.png" />
     <Content Include="Content\Avisos\Mãos para o futuro %28002%29.jpg" />
     <Content Include="Content\Banner\Banner dia do trabalhador_CV - compacto.jpg" />
@@ -173,6 +182,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\Avisos\ABRIL_.pdf" />
+    <Content Include="Content\Avisos\Comunicado 001-2025  Empréstimo Consignado.pdf" />
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\fullcalendar.js" />
     <Content Include="Scripts\fullcalendar.min.js" />
