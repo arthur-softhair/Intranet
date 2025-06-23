@@ -402,24 +402,6 @@
     </div>
 </div>
 
-<div class="modal fade" id="meuModal" tabindex="-1" aria-labelledby="meuModalLabel" aria-hidden="true">
-    <div class="modal-dialog alert alert-warning">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="meuModalLabel"><strong>AVISO IMPORTANTE!</strong></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-            </div>
-            <div class="modal-body">
-                Visando um maior período de descanso para os colaboradores, informamos que conforme acordado, será feita a troca do feriado.
-                Sendo assim, os colaboradores irão trabalhar no dia 19/06 e folgar no dia 20/06.
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 
@@ -511,6 +493,7 @@
 </script>
 
 <script>
+    // Tabela dos aniversariantes
     new DataTable('#myTable', {
         paging: false,
         scrollX: true,
@@ -523,6 +506,8 @@
         },
 
     });
+
+    // Tabela da Ginástica
     new DataTable('#myTable3', {
         paging: false,
         scrollCollapse: true,
@@ -541,6 +526,7 @@
         },
     });
 
+    // Função para revelar elementos ao rolar a página
     function revealOnScroll() {
         $(".reveal").each(function () {
             const windowHeight = $(window).height();
@@ -556,11 +542,11 @@
     }
     $(document).ready(function () {
 
+        ////Modal de Avisos Importantes que são abertos ao carregar a página
+        //var meuModal = new bootstrap.Modal(document.getElementById('meuModal'));
+        //meuModal.show();
 
-            var meuModal = new bootstrap.Modal(document.getElementById('meuModal'));
-            meuModal.show();
-
-
+        // Função de efeito de máquina de escrever no título
         function typeWriter(element, text, speed) {
             let i = 0;
             function typing() {
@@ -584,8 +570,9 @@
         $("#avisosSection").text(""); // Limpar o texto para iniciar o efeito
         typeWriter("#avisosSection", text, 125);
     });
-</script>
-<script>
+
+
+    // Script para deixar os aniversariantes do dia em destaque
     document.addEventListener("DOMContentLoaded", function () {
         const hoje = new Date();
         const diaAtual = hoje.getDate().toString().padStart(2, '0');
