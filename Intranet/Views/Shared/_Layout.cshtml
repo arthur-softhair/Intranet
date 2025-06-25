@@ -16,8 +16,6 @@
         .navbar-toggler-icon {
             filter: invert(1);
         }
-
-
         .montserrat-body {
             font-family: "Montserrat", sans-serif;
             font-optical-sizing: auto;
@@ -38,55 +36,49 @@
 
 </head>
 <body style="font-family:  Montserrat, sans-serif; font-optical-sizing: auto; font-style: normal;">
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light fixed-top" style="background-color: rgba(0, 0, 0, 0.5);">
-        <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-toggleable-sm navbar-light fixed-top" style="background-color: rgba(0, 0, 0, 0.5);">
+        <div class="container-fluid">
             <a href="@Url.Action("Index", "Home", new { area = "" })" class="navbar-brand text-white">
                 <img src="~/Content/Logo/LogoRoxa.png" alt="Application Name" style="height: 60px;">
             </a>
-            <div class="d-flex justify-content-end w-100">
-                <button type="button" class="navbar-toggler text-white ms-auto" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-            <div class="ms-auto"></div>
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <div class="mr-auto"></div>
-                <div>
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-white" href="#homeSection" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                HOME
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#avisosSection">Avisos</a></li>
-                                <li><a class="dropdown-item" href="#aniversariantesSection">Aniversariantes</a></li>
-                                <li><a class="dropdown-item" href="#calendarioSection">Calendário</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#aboutSection" class="nav-link text-white">INSTITUCIONAL</a></li>
-                        <li><a href="#lancamentosSection" class="nav-link text-white">LANÇAMENTOS</a></li>
-                        <li><a href="#contactSection" class="nav-link text-white">RAMAIS</a></li>
+            <button class="navbar-toggler text-white ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#homeSection" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            HOME
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#avisosSection">Avisos</a></li>
+                            <li><a class="dropdown-item" href="#aniversariantesSection">Aniversariantes</a></li>
+                            <li><a class="dropdown-item" href="#calendarioSection">Calendário</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#aboutSection" class="nav-link text-white">INSTITUCIONAL</a></li>
+                    <li><a href="#lancamentosSection" class="nav-link text-white">LANÇAMENTOS</a></li>
+                    <li><a href="#contactSection" class="nav-link text-white">RAMAIS</a></li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-white" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                SISTEMAS
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li class="">
-                                    <a href="http://192.168.0.200/sics/" class="nav-link " target="_blank" rel="noopener noreferrer">
-                                        SICS
-                                    </a>
-                                </li>
-                                <li class="mr-auto">
-                                    <a href="http://192.168.0.200/relatorios/" class="nav-link " target="_blank" rel="noopener noreferrer">
-                                        RELATÓRIOS
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="http://192.168.0.200/sics/AgendamentoReuniao/" class="nav-link text-white">AGENDAMENTOS</a></li>
-                    </ul>
-                </div>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            SISTEMAS
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li class="">
+                                <a href="http://192.168.0.200/sics/" class="nav-link " target="_blank" rel="noopener noreferrer">
+                                    SICS
+                                </a>
+                            </li>
+                            <li class="mr-auto">
+                                <a href="http://192.168.0.200/relatorios/" class="nav-link " target="_blank" rel="noopener noreferrer">
+                                    RELATÓRIOS
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="http://192.168.0.200/sics/AgendamentoReuniao/" class="nav-link text-white">AGENDAMENTOS</a></li>
+                </ul>
             </div>
         </div>
     </nav>
