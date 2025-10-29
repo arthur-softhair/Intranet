@@ -1,87 +1,81 @@
- @keyframes pulse {
-  0% {
-    transform: scale(1.1) rotate(3deg);
-  }
+@keyframes pulse {
+    0% {
+        transform: scale(1.1) rotate(3deg);
+    }
 
-  100% {
-    transform: scale(1.15) rotate(-3deg);
-  }
+    100% {
+        transform: scale(1.15) rotate(-3deg);
+    }
 }
 
 a,
 p {
-  font-size: 15px;
-  text-decoration: none;
+    font-size: 15px;
+    text-decoration: none;
 }
 
 h5 {
-  font-weight: 500;
+    font-weight: 700;
 }
 
 section {
-  scroll-margin-top: 100px;
+    scroll-margin-top: 100px;
 }
 
 .container-fluid {
-  border-radius: 0 75px 0 75px;
-}
-
-.container{
-    max-width:70%;
-    background-color: white;
-    border-radius: 15px 0;
-}
-
-.card-img-top:hover {
-  transform: scale(1.1);
+    border-radius: 0 75px 0 75px;
 }
 
 /* EFEITO SECTIONS */
 .reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
 
 /* LINHA ROXA BIRTHDAY */
 .linha-aniver td {
-  background-color: purple !important;
-  color: white !important;
+    background-color: plum !important;
+    color: white !important;
+    font-weight: 800 !important;
 }
 
 .modal-dialog {
-    max-width: 30%;
+    max-width: 40%;
 }
 
-.imgModal {
-    max-width: 100%;
+.efeito-lan {
+    transition: transform 1s ease-in-out;
 }
 
+    .efeito-lan:hover {
+        transform: scale(1.04);
+    }
 
 /* BOLOTAS */
 .card-body-avisos {
-  background-color: white;
-  color: rgb(53, 0, 53);
-  border-radius: 50%;
-  width: 270px;
-  height: 280px;
-  display: flex;
-  cursor: pointer;
-  flex-direction: column;
-  flex-wrap: wrap;
-  transition: transform 0.7s ease-in-out;
-  position: relative;
+    background-color: white;
+    color: rgb(53, 0, 53);
+    border-radius: 50%;
+    width: 300px;
+    height: 315px;
+    display: flex;
+    cursor: pointer;
+    flex-direction: column;
+    flex-wrap: wrap;
+    transition: transform 0.7s ease-in-out;
+    position: relative;
 }
 
-.card-body-avisos:hover {
-  background-color: #f2e7ff;
-  transform: scale(1.1);
-}
+    .card-body-avisos:hover {
+        background-color: white;
+        transform: scale(1.1);
+    }
 
     .card-body-avisos::before,
     .card-body-avisos::after {
@@ -96,33 +90,33 @@ section {
 
 /* TITULOS */
 .tt {
-  background-color: purple;
-  color: #fff;
-  border-radius: 15px 0;
-  padding: 5px 15px;
-  display: inline-block;
+    background-color: purple;
+    color: white;
+    border-radius: 15px 0;
+    padding: 5px 15px;
+    display: inline-block;
 }
 
 .tt2 {
-  background-color: mediumpurple;
-  color: #fff;
-  border-radius: 0 15px;
-  padding: 5px 15px;
-  display: inline-block;
+    background-color: mediumpurple;
+    color: white;
+    border-radius: 0 15px;
+    padding: 5px 15px;
+    display: inline-block;
 }
 
 .tt3 {
-  background-color: white;
-  color: mediumpurple;
-  border-radius: 0 15px;
-  padding: 5px 15px;
-  display: inline-block;
+    background-color: white;
+    color: mediumpurple;
+    border-radius: 0 15px;
+    padding: 5px 15px;
+    display: inline-block;
 }
 
 .tt4 {
-  background-color: white;
-  color: purple;
-  border-radius: 0 15px;
-  padding: 5px 15px;
-  display: inline-block;
+    background-color: white;
+    color: purple;
+    border-radius: 0 15px;
+    padding: 5px 15px;
+    display: inline-block;
 }
