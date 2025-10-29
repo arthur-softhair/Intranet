@@ -23,25 +23,17 @@
         border-left-color: rebeccapurple;
     }
 
-/* Título das datas */
-#calendario h5 {
-    font-weight: 700 !important;
-    color: rebeccapurple;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
 .fc-event {
     border-radius: 4px;
     padding: 5px;
 }
 
-    /* Estilos para feriados nacionais (vermelho) */
+    /* Estilos para feriados nacionais*/
     .fc-event.national {
         background-color: purple;
     }
 
-    /* Estilos para feriados municipais (azul) */
+    /* Estilos para feriados municipais*/
     .fc-event.municipal {
         background-color: mediumpurple;
     }
