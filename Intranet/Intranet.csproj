@@ -181,9 +181,9 @@
     <Content Include="Content\img\ricinoCorte.png" />
     <Content Include="Content\img\softHairBranca.png" />
     <Content Include="Content\img\Tiramake.png" />
-    <Content Include="Content\javaScript\calendar.js" />
-    <Content Include="Content\javaScript\datables.js" />
-    <Content Include="Content\javaScript\script.js" />
+    <Content Include="Scripts\calendar.js" />
+    <Content Include="Scripts\datables.js" />
+    <Content Include="Scripts\script.js" />
     <Content Include="Content\Logo\LogoRoxa.png" />
     <Content Include="Content\Produtos\000000017638.png" />
     <Content Include="Content\Produtos\000000017639.png" />
