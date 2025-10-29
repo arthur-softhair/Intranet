@@ -139,16 +139,12 @@
 
 <!-- Banner -->
 <div class="container-fluid p-0">
-    <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000" data-bs-pause="false">
+    <!--<div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000" data-bs-pause="false">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="~/Content/Banner/Banner institucional Soft Hair intranet.jpg"
                      class="d-block img-fluid"
                      style="object-fit: cover; width: 100%;">
-                @*<div class="carousel-caption d-none d-lg-block text-start" style="bottom: 20px; left: 20px;">
-                    <h1 id="avisosSection">Seja Bem-vindo!</h1>
-                    <a href="@Url.Action("Novidades", "Home")" class="btn btn-primary btn-lg rounded-5 py-0">Saiba mais...</a>
-                </div>*@
             </div>
 
             <div class="carousel-item">
@@ -183,198 +179,213 @@
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            <!--Adicione mais indicadores se houver mais slides -->
+            <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>-->
+    <!--Adicione mais indicadores se houver mais slides -->
+    <!--</div>
+    </div>-->
+
+    <div class="position-relative">
+        <img src="~/Content/Imagens/SetembroAmarelo.png" class="img-fluid" alt="...">
+
+        <a href="http://192.168.0.200/sics/SetembroAmarelo/index.html" target="_blank" class="btn position-absolute bottom-0 end-0 m-3 text-white" style="background-color:#800080">
+            SAIBA MAIS
+        </a>
+    </div>
+    <div class="text-center mt-5">
+        <span class=" py-2 px-5 fs-3 rounded-4" style="color: purple; background-color: #F8F9FA; "><strong>AVISOS</strong></span>
+        <div class="d-flex align-items-center justify-content-center my-3">
+            <hr class="mx-2" style="width: 40%; height: 3px; background-color: black; border: none;">
+            <span class="px-2 text-muted" style="font-size: 2rem;">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </span>
+            <hr class="mx-2" style="width: 40%; height: 3px; background-color: black; border: none;">
+        </div>
+    </div>
+    <p class="text-center mb-5">Todos os avisos ativos presentes em um só lugar</p>
+
+    <div class="row mt-3 mb-5 justify-content-around reveal" style="width: 100%;">
+
+        <div class="col-8 col-md-3 mb-3 mx-2">
+            <div class="card alert alert-warning px-0 pt-0"
+                 style="height: 100%; cursor: pointer;"
+                 data-bs-toggle="modal" data-bs-target="#infoModal">
+                <img src="~/Content/Avisos/Comunicado 002-2025- Entregas Pessoais-imagens-0.jpg" class="card-img-top rounded-top-3" alt="Entregas pessoais"
+                     style="width: 100%; height: 150px; object-fit: cover; object-position: top;">
+                <div class="card-body">
+                    <h5 class="card-title"><strong>Entregas Pessoais</strong></h5>
+                    <p class="card-text">Sobre a responsabilização e novas normas para o recebimento de Entregas pessoais na empresa.</p>
+                </div>
+            </div>
+        </div>
+
+        @*<div class="col-8 col-md-3 mb-3 mx-2">
+                <div class="card alert alert-warning px-0 pt-0"
+                     style="height: 100%; cursor: pointer;"
+                     data-bs-toggle="modal" data-bs-target="#infoModal1">
+                    <img src="~/Content/Banner/Banner dia do trabalhador_CV - compacto.jpg" class="card-img-top rounded-top-3" alt="Dia dos Trabalhadores"
+                         style="width: 100%; height: 150px; object-fit: cover; object-position: top;">
+                    <div class="card-body">
+                        <h5 class="card-title"><strong>Dia dos Trabalhadores!</strong></h5>
+                        <p class="card-text">Dê uma olhada em quem faz tudo acontecer!</p>
+                    </div>
+                </div>
+            </div>*@
+
+        <div class="col-8 col-md-3 mb-3 mx-2">
+            <div class="card alert alert-warning px-0 pt-0"
+                 style="height: 100%; cursor: pointer;"
+                 data-bs-toggle="modal" data-bs-target="#infoModal2">
+                <img src="~/Content/Avisos/Comunicado 001-2025  Empréstimo Consignado-imagens-0.jpg" class="card-img-top rounded-top-3" alt="Comunicado sobre Uniformes"
+                     style="width: 100%; height: 150px; object-fit: cover; object-position: top;">
+                <div class="card-body">
+                    <h5 class="card-title"><strong>Empréstimos Consignados</strong></h5>
+                    <p class="card-text">Tudo o que você precisa saber sobre o empréstimo consignado.</p>
+                </div>
+            </div>
         </div>
     </div>
 
+    <div class="row justify-content-center py-5 reveal" style="background-color: #F8F9FA; margin-left: 0; margin-right: 0;" id="aniversariantesSection">
         <div class="text-center mt-5">
-            <span class=" py-2 px-5 fs-3 rounded-4" style="color: purple; background-color: #F8F9FA; "><strong>AVISOS</strong></span>
-            <div class="d-flex align-items-center justify-content-center my-3">
-                <hr class="mx-2" style="width: 40%; height: 3px; background-color: black; border: none;">
-                <span class="px-2 text-muted" style="font-size: 2rem;">
-                    <i class="fa-solid fa-triangle-exclamation"></i>
-                </span>
-                <hr class="mx-2" style="width: 40%; height: 3px; background-color: black; border: none;">
-            </div>
-        </div>
-        <p class="text-center mb-5">Todos os avisos ativos presentes em um só lugar</p>
-
-        <div class="row mt-3 mb-5 justify-content-around reveal" style="width: 100%;">
-
-            <div class="col-8 col-md-3 mb-3 mx-2">
-                <div class="card alert alert-warning px-0 pt-0"
-                     style="height: 100%; cursor: pointer;"
-                     data-bs-toggle="modal" data-bs-target="#infoModal">
-                    <img src="~/Content/Avisos/Comunicado 002-2025- Entregas Pessoais-imagens-0.jpg" class="card-img-top rounded-top-3" alt="Entregas pessoais"
-                         style="width: 100%; height: 150px; object-fit: cover; object-position: top;">
-                    <div class="card-body">
-                        <h5 class="card-title"><strong>Entregas Pessoais</strong></h5>
-                        <p class="card-text">Sobre a responsabilização e novas normas para o recebimento de Entregas pessoais na empresa.</p>
-                    </div>
-                </div>
-            </div>
-
-            @*<div class="col-8 col-md-3 mb-3 mx-2">
-                    <div class="card alert alert-warning px-0 pt-0"
-                         style="height: 100%; cursor: pointer;"
-                         data-bs-toggle="modal" data-bs-target="#infoModal1">
-                        <img src="~/Content/Banner/Banner dia do trabalhador_CV - compacto.jpg" class="card-img-top rounded-top-3" alt="Dia dos Trabalhadores"
-                             style="width: 100%; height: 150px; object-fit: cover; object-position: top;">
-                        <div class="card-body">
-                            <h5 class="card-title"><strong>Dia dos Trabalhadores!</strong></h5>
-                            <p class="card-text">Dê uma olhada em quem faz tudo acontecer!</p>
-                        </div>
-                    </div>
-                </div>*@
-
-            <div class="col-8 col-md-3 mb-3 mx-2">
-                <div class="card alert alert-warning px-0 pt-0"
-                     style="height: 100%; cursor: pointer;"
-                     data-bs-toggle="modal" data-bs-target="#infoModal2">
-                    <img src="~/Content/Avisos/Comunicado 001-2025  Empréstimo Consignado-imagens-0.jpg" class="card-img-top rounded-top-3" alt="Comunicado sobre Uniformes"
-                         style="width: 100%; height: 150px; object-fit: cover; object-position: top;">
-                    <div class="card-body">
-                        <h5 class="card-title"><strong>Empréstimos Consignados</strong></h5>
-                        <p class="card-text">Tudo o que você precisa saber sobre o empréstimo consignado.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row justify-content-center py-5 reveal" style="background-color: #F8F9FA; margin-left: 0; margin-right: 0;" id="aniversariantesSection">
-            <div class="text-center mt-5">
-                <span class="reveal py-2 px-5 fs-3 rounded-4" style="color:purple; background-color: #F8F9FA;"><strong>ANIVERSARIANTES DO MÊS</strong></span>
-                <div class="d-flex align-items-center justify-content-center my-3 reveal">
-                    <hr class="mx-2" style="width: 40%; height: 3px; background-color: black; border: none;">
-                    <span class="px-2 text-muted" style="font-size: 2rem;">
-                        <i class="fa-solid fa-cake"></i>
-                    </span>
-                    <hr class="mx-2" style="width: 40%; height: 3px; background-color: black; border: none;">
-                </div>
-            </div>
-            <p class="text-center mb-5 reveal">Parte destinada a todos os aniversariante do mês</p>
-
-            <div class="col-10 col-sm-12 col-md-8 reveal mb-5">
-                <table id="myTable" class="display table-responsive">
-                    <thead>
-                        <tr style="background-color: violet;">
-                            <th>NOME</th>
-                            <th>ANIVERSÁRIO</th>
-                            <th>DEPARTAMENTO</th>
-                        </tr>
-                    </thead>
-                    <tbody class="bg-white">
-                        <tr><td>Ludimila Gonçalves</td><td>05/07</td><td>Produção</td></tr>
-                        <tr><td>Luzineide Santana</td><td>08/07</td><td>Produção</td></tr>
-                        <tr><td>Rafael Eustáquio</td><td>10/07</td><td>Produção</td></tr>
-                        <tr><td>Evanilda Franco</td><td>16/07</td><td>Produção</td></tr>
-                        <tr><td>Thaina Martins</td><td>23/07</td><td>Produção</td></tr>
-                        <tr><td>Guilherme Marinho</td><td>25/07</td><td>Produção</td></tr>
-                        <tr><td>Denise Vasconcelos</td><td>28/07</td><td>Produção</td></tr>
-                        <tr><td>Camila Clemence</td><td>11/07</td><td>Administrativo</td></tr>
-                        <tr><td>Pedro Ivo</td><td>16/07</td><td>Administrativo</td></tr>
-                        <tr><td>Tatiane Pinto</td><td>21/07</td><td>Administrativo</td></tr>
-                        <tr><td>Quintiliana Tinoco (Tininha)</td><td>28/07</td><td>Administrativo</td></tr>
-                        <tr><td>Richard Stuart</td><td>10/07</td><td>Elza/Filial</td></tr>
-
-                    </tbody>
-                </table>
-            </div>
-
-            <span class="reveal py-2 px-5 fs-3 rounded-4 text-center" style="color:purple; background-color: #F8F9FA;"><strong>FICHA DE GINÁSTICA - ESCRITÓRIO</strong></span>
-            <div class="d-flex align-items-center justify-content-center my-3 reveal">
-                <hr class="mx-2" style="width: 40%; height: 3px; background-color: black; border: none;">
-                <span class="px-2 text-muted text-center" style="font-size: 2rem;">
-                    <i class="fa-solid fa-people-group"></i>
-                </span>
-                <hr class="mx-2" style="width: 40%; height: 3px; background-color: black; border: none;">
-            </div>
-            <div class="col-8">
-                <table id="myTable3" class="display table-responsive table-bordered text-center reveal">
-                    <thead>
-                        <tr style="background-color: violet;">
-                            <th>DATA</th>
-                            <th>NOME</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>01/jul</td><td>Quintiliana (Tininha)</td></tr>
-                        <tr><td>02/jul</td><td>Tatiane Franco</td></tr>
-                        <tr><td>03/jul</td><td>Thalyta</td></tr>
-                        <tr><td>04/jul</td><td>Thiago Soares</td></tr>
-                        <tr><td>07/jul</td><td>Victor César</td></tr>
-                        <tr><td>08/jul</td><td>Adila Ribeiro</td></tr>
-                        <tr><td>09/jul</td><td>Alana</td></tr>
-                        <tr><td>10/jul</td><td>Aline Moreira</td></tr>
-                        <tr><td>11/jul</td><td>Andreza</td></tr>
-                        <tr><td>14/jul</td><td>Berenice Longuinhos</td></tr>
-                        <tr><td>15/jul</td><td>Camila Barbosa</td></tr>
-                        <tr><td>16/jul</td><td>Crimacia Oliveira</td></tr>
-                        <tr><td>17/jul</td><td>Danielle Stefânia</td></tr>
-                        <tr><td>18/jul</td><td>Dayse Mara</td></tr>
-                        <tr><td>21/jul</td><td>Dayse Xavier</td></tr>
-                        <tr><td>22/jul</td><td>Deivid Rodrigues</td></tr>
-                        <tr><td>23/jul</td><td>Fagner Miguel</td></tr>
-                        <tr><td>24/jul</td><td>Felipe</td></tr>
-                        <tr><td>25/jul</td><td>Gerald Wagner</td></tr>
-                        <tr><td>28/jul</td><td>Izabela Amora</td></tr>
-                        <tr><td>29/jul</td><td>Jade Dayanne</td></tr>
-                        <tr><td>30/jul</td><td>Jaqueline</td></tr>
-                        <tr><td>31/jul</td><td>João Victor</td></tr>x
-                        <tr><td><strong>Agosto</strong></td><td></td></tr>
-                        <tr><td>01/ago</td><td>Karolina</td></tr>
-                        <tr><td>04/ago</td><td>Karoline Oliveira</td></tr>
-                        <tr><td>05/ago</td><td>Lívia Carvalho</td></tr>
-                        <tr><td>06/ago</td><td>Lorrayne Braga</td></tr>
-                        <tr><td>07/ago</td><td>Luiz Caio</td></tr>
-                        <tr><td>08/ago</td><td>Luiz Gustavo</td></tr>
-                        <tr><td>11/ago</td><td>Maria Laura</td></tr>
-                        <tr><td>12/ago</td><td>Mariana Ferreira</td></tr>
-                        <tr><td>13/ago</td><td>Miguel Sales</td></tr>
-                        <tr><td>14/ago</td><td>Natã</td></tr>
-                        <tr><td>15/ago</td><td><strong>Feriado</strong></td></tr>
-                        <tr><td>18/ago</td><td>Paula</td></tr>
-                        <tr><td>19/ago</td><td>Pedro Ivo</td></tr>
-                        <tr><td>20/ago</td><td>Quintiliana (Tininha)</td></tr>
-                        <tr><td>21/ago</td><td>Tatiane Franco</td></tr>
-                        <tr><td>22/ago</td><td>Thalyta</td></tr>
-                        <tr><td>25/ago</td><td>Thiago Soares</td></tr>
-                        <tr><td>26/ago</td><td>Victor César</td></tr>
-                        <tr><td>27/ago</td><td>Adila Ribeiro</td></tr>
-                        <tr><td>28/ago</td><td>Alana</td></tr>
-                        <tr><td>29/ago</td><td>Aline Moreira</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            @*<div class="col-sm-12 col-md-6 reveal">
-                    <img src="~/Content/Imagens/birthday.png" class="img-fluid"/>
-                </div>*@
-        </div>
-
-        <div class="container reveal" id="calendarioSection" style="height: 50px">
-        </div>
-        <div class="text-center mt-5">
-            <span class="reveal py-2 px-5 fs-3 rounded-4" style="color:purple; background-color: #F8F9FA;"><strong>CALENDÁRIO</strong></span>
+            <span class="reveal py-2 px-5 fs-3 rounded-4" style="color:purple; background-color: #F8F9FA;"><strong>ANIVERSARIANTES DO MÊS</strong></span>
             <div class="d-flex align-items-center justify-content-center my-3 reveal">
                 <hr class="mx-2" style="width: 40%; height: 3px; background-color: black; border: none;">
                 <span class="px-2 text-muted" style="font-size: 2rem;">
-                    <i class="fa-solid fa-calendar-days"></i>
+                    <i class="fa-solid fa-cake"></i>
                 </span>
                 <hr class="mx-2" style="width: 40%; height: 3px; background-color: black; border: none;">
             </div>
         </div>
-        <p class="text-center mb-5 reveal">Aqui se encontra o Calendário oficial da empresa</p>
+        <p class="text-center mb-5 reveal">Parte destinada a todos os aniversariante do mês</p>
 
-        <div class="row justify-content-center my-5 reveal w-100">
-            <div class="col-12 col-sm-12 col-md-5" id='calendar' style="width: 45%"></div>
-            <div class="col-10 col-sm-12 col-md-5 text-center">
-                <h4 class="my-3">🗓️ DATAS COMEMORATIVAS</h4>
-                <ul id="holiday-legend" class="list-unstyled"></ul>
-                <ul id="holiday-legend" class="list-unstyled"></ul>
-            </div>
+        <div class="col-10 col-sm-12 col-md-8 reveal mb-5">
+            <table id="myTable" class="display table-responsive">
+                <thead>
+                    <tr style="background-color: violet;">
+                        <th>NOME</th>
+                        <th>ANIVERSÁRIO</th>
+                        <th>DEPARTAMENTO</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white">
+                    <!-- Setembro -->
+                    <tr><td>Isadora Mirella</td><td>01/09</td><td>Administrativo</td></tr>
+                    <tr><td>Livia Carvalho</td><td>02/09</td><td>Administrativo</td></tr>
+                    <tr><td>Fabio Alexandre</td><td>05/09</td><td>Produção</td></tr>
+                    <tr><td>Fagner Miguel</td><td>07/09</td><td>Administrativo</td></tr>
+                    <tr><td>Larissa Graciela</td><td>10/09</td><td>Produção</td></tr>
+                    <tr><td>Silvia Carvalho</td><td>12/09</td><td>Elza/CD</td></tr>
+                    <tr><td>Marlon Campo</td><td>14/09</td><td>Elza/CD</td></tr>
+                    <tr><td>Ilma Rosa</td><td>15/09</td><td>Produção</td></tr>
+                    <tr><td>Angelo José</td><td>15/09</td><td>Elza/CD</td></tr>
+                    <tr><td>Alana Rodrigues</td><td>16/09</td><td>Administrativo</td></tr>
+                    <tr><td>Juliana Lig</td><td>18/09</td><td>Produção</td></tr>
+                    <tr><td>Ana Paula</td><td>20/09</td><td>Produção</td></tr>
+                    <tr><td>Sindy Lauren</td><td>26/09</td><td>Produção</td></tr>
+                    <tr><td>Thalyta Cristyellem</td><td>26/09</td><td>Administrativo</td></tr>
+                    <tr><td>Eloisa Vieira</td><td>26/09</td><td>Visão</td></tr>
+                    <tr><td>Renato Santos</td><td>29/09</td><td>Elza/CD</td></tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <span class="reveal py-2 px-5 fs-3 rounded-4 text-center" style="color:purple; background-color: #F8F9FA;"><strong>FICHA DE GINÁSTICA - ESCRITÓRIO</strong></span>
+        <div class="d-flex align-items-center justify-content-center my-3 reveal">
+            <hr class="mx-2" style="width: 40%; height: 3px; background-color: black; border: none;">
+            <span class="px-2 text-muted text-center" style="font-size: 2rem;">
+                <i class="fa-solid fa-people-group"></i>
+            </span>
+            <hr class="mx-2" style="width: 40%; height: 3px; background-color: black; border: none;">
+        </div>
+        <div class="col-8">
+            <table id="myTable3" class="display table-responsive table-bordered text-center reveal">
+                <thead>
+                    <tr style="background-color: violet;">
+                        <th>DATA</th>
+                        <th>NOME</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Setembro -->
+                    <tr><td>01/set</td><td>Andreza</td></tr>
+                    <tr><td>02/set</td><td>Berenice Longuinhos</td></tr>
+                    <tr><td>03/set</td><td>Camila Barbosa</td></tr>
+                    <tr><td>04/set</td><td>Crimacia Oliveira</td></tr>
+                    <tr><td>05/set</td><td>Danielle Stefânia</td></tr>
+                    <tr><td>08/set</td><td>Dayse Mara</td></tr>
+                    <tr><td>09/set</td><td>Dayse Xavier</td></tr>
+                    <tr><td>10/set</td><td>Deivid Rodrigues</td></tr>
+                    <tr><td>11/set</td><td>Fagner Miguel</td></tr>
+                    <tr><td>12/set</td><td>Cellosize</td></tr>
+                    <tr><td>15/set</td><td>Gerald Wagner</td></tr>
+                    <tr><td>16/set</td><td>Isadora Mirella</td></tr>
+                    <tr><td>17/set</td><td>Izabela Amora</td></tr>
+                    <tr><td>18/set</td><td>Jade Dayanne</td></tr>
+                    <tr><td>19/set</td><td>Jaqueline</td></tr>
+                    <tr><td>22/set</td><td>João Victor</td></tr>
+                    <tr><td>23/set</td><td>Karolina</td></tr>
+                    <tr><td>24/set</td><td>Karoline Oliveira</td></tr>
+                    <tr><td>25/set</td><td>Lívia Carvalho</td></tr>
+                    <tr><td>26/set</td><td>Luiz Caio</td></tr>
+                    <tr><td>29/set</td><td>Luiz Gustavo</td></tr>
+                    <tr><td>30/set</td><td>Marco Tulio</td></tr>
+
+                    <!-- Outubro -->
+                    <tr><td>01/out</td><td>Maria Eduarda</td></tr>
+                    <tr><td>02/out</td><td>Maria Laura</td></tr>
+                    <tr><td>03/out</td><td>Natã</td></tr>
+                    <tr><td>06/out</td><td>Paula</td></tr>
+                    <tr><td>07/out</td><td>Pedro Ivo</td></tr>
+                    <tr><td>08/out</td><td>Quintiliana (Tininha)</td></tr>
+                    <tr><td>09/out</td><td>Tatiane Franco</td></tr>
+                    <tr><td>10/out</td><td>Thalyta</td></tr>
+                    <tr><td>13/out</td><td>Thiago Soares</td></tr>
+                    <tr><td>14/out</td><td>Victor César</td></tr>
+                    <tr><td>15/out</td><td>Adila Ribeiro</td></tr>
+                    <tr><td>16/out</td><td>Alana</td></tr>
+                    <tr><td>17/out</td><td>Aline Moreira</td></tr>
+                    <tr><td>20/out</td><td>Andreza</td></tr>
+                    <tr><td>21/out</td><td>Berenice Longuinhos</td></tr>
+                    <tr><td>22/out</td><td>Camila Barbosa</td></tr>
+                    <tr><td>23/out</td><td>Crimacia Oliveira</td></tr>
+                    <tr><td>24/out</td><td>Danielle Stefânia</td></tr>
+                    <tr><td>27/out</td><td>Dayse Mara</td></tr>
+                    <tr><td>28/out</td><td>Dayse Xavier</td></tr>
+                    <tr><td>29/out</td><td>Deivid Rodrigues</td></tr>
+                    <tr><td>30/out</td><td>Fagner Miguel</td></tr>
+                    <tr><td>31/out</td><td>Felipe</td></tr>
+                </tbody>
+            </table>
+        </div>
+        @*<div class="col-sm-12 col-md-6 reveal">
+                <img src="~/Content/Imagens/birthday.png" class="img-fluid"/>
+            </div>*@
+    </div>
+
+    <div class="container reveal" id="calendarioSection" style="height: 50px">
+    </div>
+    <div class="text-center mt-5">
+        <span class="reveal py-2 px-5 fs-3 rounded-4" style="color:purple; background-color: #F8F9FA;"><strong>CALENDÁRIO</strong></span>
+        <div class="d-flex align-items-center justify-content-center my-3 reveal">
+            <hr class="mx-2" style="width: 40%; height: 3px; background-color: black; border: none;">
+            <span class="px-2 text-muted" style="font-size: 2rem;">
+                <i class="fa-solid fa-calendar-days"></i>
+            </span>
+            <hr class="mx-2" style="width: 40%; height: 3px; background-color: black; border: none;">
         </div>
     </div>
+    <p class="text-center mb-5 reveal">Aqui se encontra o Calendário oficial da empresa</p>
+
+    <div class="row justify-content-center my-5 reveal w-100">
+        <div class="col-12 col-sm-12 col-md-5" id='calendar' style="width: 45%"></div>
+        <div class="col-10 col-sm-12 col-md-5 text-center">
+            <h4 class="my-3">🗓️ DATAS COMEMORATIVAS</h4>
+            <ul id="holiday-legend" class="list-unstyled"></ul>
+            <ul id="holiday-legend" class="list-unstyled"></ul>
+        </div>
+    </div>
+</div>
     <!-- Modal 1 -->
     <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl">
@@ -472,13 +483,13 @@
                 { title: 'Assunção de Nossa Senhora', date: '2025-08-15', type: 'municipal' },
                 { title: 'Imaculada Conceição', date: '2025-12-08', type: 'municipal' },
 
-                { title: 'Aniversariantes de Junho', date: '2025-06-10', type: 'event' },
-                { title: 'Aniversariantes de Julho', date: '2025-07-08', type: 'event' },
-                { title: 'Aniversariantes de Agosto', date: '2025-08-12', type: 'event' },
-                { title: 'Aniversariantes de Setembro', date: '2025-09-16', type: 'event' },
-                { title: 'Aniversariantes de Outubro', date: '2025-10-07', type: 'event' },
-                { title: 'Aniversariantes de Novembro', date: '2025-11-11', type: 'event' },
-                { title: 'Aniversariantes de Dezembro', date: '2025-12-09', type: 'event' }
+                //{ title: 'Aniversariantes de Junho', date: '2025-06-10', type: 'event' },
+                //{ title: 'Aniversariantes de Julho', date: '2025-07-08', type: 'event' },
+                //{ title: 'Aniversariantes de Agosto', date: '2025-08-12', type: 'event' },
+                //{ title: 'Aniversariantes de Setembro', date: '2025-09-16', type: 'event' },
+                //{ title: 'Aniversariantes de Outubro', date: '2025-10-07', type: 'event' },
+                //{ title: 'Aniversariantes de Novembro', date: '2025-11-11', type: 'event' },
+                //{ title: 'Aniversariantes de Dezembro', date: '2025-12-09', type: 'event' }
             ];
 
             var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -556,20 +567,23 @@
             },
         });
 
-        // Função para revelar elementos ao rolar a página
-        function revealOnScroll() {
-            $(".reveal").each(function () {
-                const windowHeight = $(window).height();
-                const elementTop = $(this).offset().top;
-                const scrollTop = $(window).scrollTop();
-                const revealPoint = 150;
 
-                // Só adiciona a classe "active" se o elemento não tiver sido revelado ainda
-                if (elementTop < scrollTop + windowHeight - revealPoint) {
-                    $(this).addClass("active");
-                }
-            });
-        }
+        //// Função para revelar elementos ao rolar a página
+        //function revealOnScroll() {
+        //    $(".reveal").each(function () {
+        //        const windowHeight = $(window).height();
+        //        const elementTop = $(this).offset().top;
+        //        const scrollTop = $(window).scrollTop();
+        //        const revealPoint = 150;
+
+        //        // Só adiciona a classe "active" se o elemento não tiver sido revelado ainda
+        //        if (elementTop < scrollTop + windowHeight - revealPoint) {
+        //            $(this).addClass("active");
+        //        }
+        //    });
+        //}
+
+
         $(document).ready(function () {
 
             ////Modal de Avisos Importantes que são abertos ao carregar a página

@@ -1,0 +1,47 @@
+﻿/* --- Seção Calendário --- */
+#calendario a {
+    color: black !important;
+    text-decoration: none;
+}
+
+/* Lista de datas comemorativas */
+#holiday-legend li {
+    background: #f8f8ff !important;
+    color: black;
+    margin-bottom: 12px;
+    padding: 12px 16px;
+    border-left: 5px solid mediumpurple;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+    #holiday-legend li:hover {
+        background: #f0e6ff !important;
+        transform: translateX(5px);
+        border-left-color: rebeccapurple;
+    }
+
+/* Título das datas */
+#calendario h5 {
+    font-weight: 700 !important;
+    color: rebeccapurple;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.fc-event {
+    border-radius: 4px;
+    padding: 5px;
+}
+
+    /* Estilos para feriados nacionais (vermelho) */
+    .fc-event.national {
+        background-color: purple;
+    }
+
+    /* Estilos para feriados municipais (azul) */
+    .fc-event.municipal {
+        background-color: mediumpurple;
+    }

@@ -152,6 +152,10 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\css\bg.css" />
+    <Content Include="Content\css\calendar.css" />
+    <Content Include="Content\css\header.css" />
+    <Content Include="Content\css\style.css" />
     <Content Include="Content\destaque-733.jpg" />
     <Content Include="Content\fullcalendar.css" />
     <Content Include="Content\fullcalendar.min.css" />
@@ -163,6 +167,23 @@
     <Content Include="Content\Icones\ideia.png" />
     <Content Include="Content\Imagens\birthday.png" />
     <Content Include="Content\Imagens\pequenos-empresarios-com-dispositivos-digitais-em-um-grande-globo-navegando-na-internet.png" />
+    <Content Include="Content\Imagens\SetembroAmarelo.png" />
+    <Content Include="Content\img\1ec.jpg" />
+    <Content Include="Content\img\1en.jpg" />
+    <Content Include="Content\img\2ec.jpg" />
+    <Content Include="Content\img\2en.jpg" />
+    <Content Include="Content\img\3ec.jpg" />
+    <Content Include="Content\img\bannerRosa.png" />
+    <Content Include="Content\img\biosoft.png" />
+    <Content Include="Content\img\outRosaone.png" />
+    <Content Include="Content\img\intraComputer.png" />
+    <Content Include="Content\img\LogoRoxa.png" />
+    <Content Include="Content\img\ricinoCorte.png" />
+    <Content Include="Content\img\softHairBranca.png" />
+    <Content Include="Content\img\Tiramake.png" />
+    <Content Include="Content\javaScript\calendar.js" />
+    <Content Include="Content\javaScript\datables.js" />
+    <Content Include="Content\javaScript\script.js" />
     <Content Include="Content\Logo\LogoRoxa.png" />
     <Content Include="Content\Produtos\000000017638.png" />
     <Content Include="Content\Produtos\000000017639.png" />
@@ -315,6 +336,7 @@
     <Content Include="Scripts\moment-with-locales.min.js.map" />
     <Content Include="Views\AgendamentoReuniao\Index.cshtml" />
     <Content Include="Views\Home\Jornal.cshtml" />
+    <Content Include="Views\Home\Index - Copy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
